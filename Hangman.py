@@ -42,7 +42,7 @@ def game(l):
             print("\n\n!!!HURRRAY YOU WON!!!")
             print("\n******************\n")
     print("PRESS 1 TO PLAY AGAIN")
-    print("PRESS 2 TO EXIT\n=>"end="")
+    print("PRESS 2 TO EXIT\n=>",end="")
     return int(input())
 
 
