@@ -5,17 +5,17 @@ print("\nPRESS 1 TO PLAY")
 print("PRESS 2 TO EXIT\n=>",end="")
 flag=int(input())
 def game(l):
-    b=r.randint(0,4)
+    b=r.randint(0,len(l)-1)
     x=l[b]
     count=5
-    a=[]
-    s=[]
+    dis_words_in_list=[]
+    guessed_words=[]
     for i in x:
-        if i not in a:
-            a.append(i)
-    while(count>0 and sorted(a)!=sorted(s)):
+        if i not in dis_words_in_list:
+            dis_words_in_list.append(i)
+    while(count>0 and sorted(dis_words_in_list)!=sorted(guessed_words)):
         for i in range (len(x)):
-            if x[i] in s:
+            if x[i] in guessed_words:
                 print(x[i],end=" ")
             else:
                 print("_",end=" ")
@@ -23,11 +23,11 @@ def game(l):
         print("GUESSES LEFT",count)
         z=input("guess the letter:")
         print("\n**********************************\n")
-        if z in a:
-            if z in s:
+        if z in dis_words_in_list:
+            if z in guessed_words:
                 print("YOU HAVE ALREADY GUESSED THIS WORD \n")
             else:
-                s.append(z)
+                guessed_words.append(z)
         else:
             count-=1
     else:
@@ -36,6 +36,8 @@ def game(l):
             print("\nTHE WORD WAS:-\n")
             for i in range (len(x)):
                 print(x[i],end=" ")
+            print("\n******************\n")
+    
         else:
             for i in range (len(x)):
                 print(x[i],end=" ")
